@@ -10,13 +10,18 @@ int main(int argc, char *argv[]) {
 	initStackLL(&S1);
 	bool res;
 	int peek;
+	bool empty;
 	res = Stack_PushLL(&S1, 2);
 	res = Stack_PushLL(&S1, 5);
 	res = Stack_PushLL(&S1, 3);
-	res = Stack_PopLL(&S1);
 	
-	peek = Stack_PeekLL(S1);
-	printf("%d", peek);
+	displayLL(S1);
+
+	
+	
+	
+	
+
 	
 	
 	
