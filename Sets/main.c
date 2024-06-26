@@ -19,7 +19,8 @@ int main(int argc, char *argv[]) {
 		B[i] = i*1;
 	}
 	
-	C = get_Union(A, size_A, B, size_B, &size_C);
+	C = get_Intersection(A, size_A, B, size_B, &size_C);
+	del_Val(&C, &size_C);
 	displaySet(C, size_C);
 	
 	

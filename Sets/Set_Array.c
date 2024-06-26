@@ -13,19 +13,54 @@ SET* get_Union(SET A[], int size_A, SET B[], int size_B, int *size_C){
 	SET *C = (SET*)malloc((size_A+size_B)*sizeof(SET));
 	int i;
 	int j;
-	int k = 0;
-	for(i = 0; i < size_A; i++){
-		C[k] = A[i];
-		k++;
-	}
-	for(i = 0; i < size_A; i++){
-		for(j = 0; j < size_B && new == 0; j++){
-			if()
+	int k;
+	for(i = 0, j = 0, k = 0;  i != size_A || j != size_B; ){
+		if(A[i] < B[j]){
+			C[k] = A[i];
+			i++;
+			k++;
+		}
+		else if(A[i] > B[j]){
+			C[k] = B[j];
+			j++;
+			k++;
+		}
+		else{
+			C[k] = B[j];
+			k++;
+			i++;
+			j++;
 		}
 	}
 	
 	C = (SET*)realloc(C, k*sizeof(SET));
 	*size_C = k++;
+	return C;
+	
+}
+
+SET* get_Intersection(SET A[], int size_A, SET B[], int size_B, int *size_C){
+		SET *C = (SET*)malloc((size_A)*sizeof(SET));
+	int i;
+	int j;
+	int k;
+	for(i = 0, j = 0, k = 0;  i != size_A && j != size_B; ){
+		if(A[i] < B[j]){
+			i++;
+		}
+		else if(A[i] > B[j]){
+			j++;
+		}
+		else{
+			C[k] = A[i];
+			k++;
+			i++;
+			j++;
+		}
+	}
+	
+	C = (SET*)realloc(C, k*sizeof(SET));
+	*size_C = k;
 	return C;
 	
 }
